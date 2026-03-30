@@ -1,2 +1,2 @@
 # rock-paper-scissors
-My first reponsive non-GUI assignment - JavaScript
+My first responsive non-GUI assignment - JavaScript
