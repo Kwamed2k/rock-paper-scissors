@@ -1,6 +1,3 @@
-// (Step 1) Testing the console
-console.log("Hello world!");
-
 // (Step 2) Algorithm to get computer choice
 function getComputerChoice() {
     const randomNum = Math.random();
@@ -32,8 +29,8 @@ function getHumanChoice() {
 }
 
 // (Step 4) Player score variables
-humanScore = 0;
-computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 // Initializing score variables
 console.log("=== (Step 4) Score variables initialized ===");
@@ -59,11 +56,52 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "paper" && computerChoice === "rock")
     ) {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanChoice++;
+        humanScore++;
     } else {
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerChoice++;
+        computerScore++;
     }
 
     console.log(`Scores - You: ${humanScore}, Computer: ${computerScore}\n`);
 }
+
+// (Step 6) Logic to play entire game
+function playGame() {
+    console.log("=== ROCK PAPER SCISSORS - 5 ROUNDS ===\n");
+
+    for (let round = 1; round <= 5; round++) {
+        console.log(`---Round ${round}---`);
+    
+    const humanSelection = getHumanChoice();
+
+    // Check if user cancelled
+    if (humanSelection === null) {
+        console.log("User cancelled game");
+        return;
+    }
+
+    // Validate human selection
+    if (!["rock", "paper", "scissors"].includes(humanSelection)) {
+        console.log("Invalid choice: Please enter rock, paper or scissors");
+        round--; // Don't count this round
+        continue;
+    }
+
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    }
+
+    console.log("=== GAME OVER ===");
+    console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+
+    if (humanScore > computerScore) {
+        console.log("🎉 Congratulations! You won the game!");
+    } else if (computerScore > humanScore) {
+        console.log("😔 Computer wins the game! Better luck next time!");
+    } else {
+        console.log("🤝 It's a tie!");
+    }
+}
+
+// Starts the game
+playGame();
