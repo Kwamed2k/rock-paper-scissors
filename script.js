@@ -1,3 +1,6 @@
+//(Step 1) Testing console.log
+console.log("Hello World");
+
 // (Step 2) Algorithm to get computer choice
 function getComputerChoice() {
     const randomNum = Math.random();
@@ -95,11 +98,11 @@ function playGame() {
     console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
 
     if (humanScore > computerScore) {
-        console.log("🎉 Congratulations! You won the game!");
+        console.log("Congratulations! You won the game!");
     } else if (computerScore > humanScore) {
-        console.log("😔 Computer wins the game! Better luck next time!");
+        console.log("Computer wins the game! Better luck next time!");
     } else {
-        console.log("🤝 It's a tie!");
+        console.log("It's a tie!");
     }
 }
 
